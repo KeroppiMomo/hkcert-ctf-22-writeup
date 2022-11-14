@@ -37,7 +37,7 @@ about this exact script. Its description reads:
 
 - The website is subject to XSS by including HTML code in the comments,
 but this is not useful for getting the flag.
-- After providing a PutsReq URL and disposable email address, we found that
+- After providing a PutsReq URL and a disposable email address, we found that
 the website does not visit the URL entered or send an email to the email adress.
 - There doesn't seem to have any other user than `/~matt`.
 - The Perl script uses `open` to send email.
@@ -52,6 +52,7 @@ When the printed HTML file contains `<!--#[directive] ... -->`, SSI replaces it 
 For example,
 - `<!--#include file="filename.txt" -->` includes the content of `filename.txt`, and
 - `<!--#exec cmd="ls" -->` includes the output of `ls`.
+
 As a result, we want to include `<!--#exec cmd="cat /flag" -->` in the guestbook.
 
 However, each field is sanitized before handling:
@@ -72,6 +73,7 @@ But we can bypass this by spliting the payload into two parts, and putting them 
 Add the following entry:
 - State: `<!--#exec cmd="cat /flag"`
 - Country: `-->`
+
 and check the guestbook.
 
 ![The flag.](./cve1999-flag.png)
