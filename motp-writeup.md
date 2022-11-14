@@ -13,7 +13,7 @@ which asks for the username, password and three one-time passwords (OTP).
 Clicking "Sign In" sends a POST request to `/login.php`, which then responds with
 which field is incorrect.
 
-![The result of a form submission.](./description.png)
+![The result of a form submission.](./motp-description.png)
 
 The goal is to enter the correct username and password, and bypass the OTP checks.
 
